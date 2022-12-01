@@ -84,11 +84,11 @@ mytheme  <- function() {
     theme(
       legend.position = 'top',
       axis.title.y = element_text(
-        family = 'Roboto Mono',
+        family = 'Roboto',
         face = 'bold',
         vjust = 0.2),
       axis.title.x = element_text(
-        family = 'Roboto Mono',
+        family = 'Roboto',
         face = 'bold',
         hjust = 0.5),
       axis.text.y = element_text(
@@ -101,10 +101,10 @@ mytheme  <- function() {
         face = 'bold',
         hjust = 0.5),
       plot.subtitle = element_text(
-        family = 'Roboto Condensed',
+        family = 'Roboto',
         hjust = 0.5),
       plot.caption = element_text(
-        family = 'Roboto Condensed'),
+        family = 'Roboto'),
       panel.grid.major = element_blank(),
       panel.grid.minor = element_blank(),
       plot.margin = margin(20, 20, 10, 10))
@@ -266,9 +266,11 @@ ui <- dashboardPage(
           column(
             width = 9,
             box(
-              tmapOutput("fig7")),
+              tmapOutput("fig7"),
+              width = "100%"),
             box(
-              plotOutput("fig8"))))),
+              plotOutput("fig8"),
+              width = "100%")))),
       
       
       ### 3-4 map --------------------------------------------------------
