@@ -1,1 +1,7 @@
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+**Prediction: Places with more rainfall are likely to be flooded.**
+
+Note that the x-axis of this scatterplot indicates the relative precipitation percentage comparing to normal value in the same month.
+
+For riverine high-water marks, we observe a slightly positive slope here so we can say they are positively associated assuming other assumptions of linearity are satisfied. In other words, more rainfall tends to lead to more floods.
+
+In contrast, for coastal high-water marks, such relationship does not seem to hold.

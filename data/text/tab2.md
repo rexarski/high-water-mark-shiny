@@ -1,3 +1,5 @@
-## High-water Marks
+## High-water marks by type
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+The static map on the left shows the locations of high-water marks by type, *Coastal* and *Riverine*. The light blue areas are the actual flooded area under the influence of Hurricane Florence.
+
+The table below is a summary table of average characteristics of the high-water marks by type and state.

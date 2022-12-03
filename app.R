@@ -160,10 +160,18 @@ ui <- dashboardPage(
       tabItem(
         tabName = "introduction",
         tags$br(),
-        h2("Introduction"),
+        h2("Fanstastic High-water Marks and Where to Find Them"),
         fluidRow(
           column(
             width = 12,
+            tags$figure(
+              align = "center",
+              tags$img(
+                src = "https://upload.wikimedia.org/wikipedia/commons/a/aa/Radford_High_Water_Mark_sign_Phillips_WX4SNO.jpg",
+                height = 240,
+                alt = "High water mark sign in Bisset Park, VA"),
+              tags$figcaption(
+                "High water mark sign in Bisset Park, VA, United States")),
             includeMarkdown("data/text/tab1.md")))),
       
       
@@ -208,8 +216,9 @@ ui <- dashboardPage(
                 "Coastal" = "Coastal"),
               selected = "All",
               multiple = FALSE),
-            helpText("Note: Lorem ipsum dolor sit amet, consectetur",
-                     "adipiscing elit, sed do eiusmod tempor ut.")),
+            helpText("Note: You can select the either or both high-water ",
+                     "marks to display. Any selection will be reflected",
+                     " in the histogram and the map.")),
           column(
             width = 9,
             box(
@@ -251,7 +260,8 @@ ui <- dashboardPage(
             width = 3,
             includeMarkdown("data/text/tab3-map-3.md"),
             hr(),
-            
+            helpText("Note: Check to toggle additional elements ",
+                     "in the scatterplot."),
             checkboxInput(
               inputId = "toggle_overall",
               label = "Show overall regression line",
@@ -259,10 +269,7 @@ ui <- dashboardPage(
             checkboxInput(
               inputId = "toggle_reference",
               label = "Show prediction reference",
-              value = FALSE),
-            
-            helpText("Note: Lorem ipsum dolor sit amet, consectetur",
-                     "adipiscing elit, sed do eiusmod tempor ut.")),
+              value = FALSE)),
           column(
             width = 9,
             box(
@@ -334,24 +341,6 @@ server <- function(input, output) {
   rasters_reactive <- reactive({
     rasters})
   
-  rasters_flooded <- reactive({
-    rasters_reactive()$flooded})
-  
-  rasters_duration <- reactive({
-    rasters_reactive()$duration})
-  
-  rasters_elevation <- reactive({
-    rasters_reactive()$elevation})
-  
-  rasters_hillshade <- reactive({
-    rasters_reactive()$hillshade})
-  
-  rasters_pdensity <- reactive({
-    rasters_reactive()$pop_density})
-  
-  rasters_precip <- reactive({
-    rasters_reactive()$percent_of_normal_precip})
-  
   
   ## fig1-2 ----------------------------------------------------------
   
@@ -360,7 +349,7 @@ server <- function(input, output) {
     
     tm_style("cobalt") +
       tm_shape(
-        rasters_hillshade())+
+        rasters_reactive()$hillshade)+
       tm_raster(
         pal = gray.colors(
           n = 10,
@@ -370,7 +359,7 @@ server <- function(input, output) {
         alpha = 0.2,
         legend.show = FALSE) +
       tm_shape(
-        rasters_flooded(),
+        rasters_reactive()$flooded,
         name = "Flooded area") +
       tm_raster(
         style = "cat",
@@ -400,8 +389,8 @@ server <- function(input, output) {
   output$tbl2 <- renderDT(
     hwm %>%
       group_by(
-        stateName,
-        hwm_environment) %>%
+        State = stateName,
+        Type = hwm_environment) %>%
       summarize(
         `Affected Counties` = n_distinct(countyName),
         `High-water Marks Count` = n(),
@@ -436,7 +425,7 @@ server <- function(input, output) {
     }
     
     tm_shape(
-      rasters_duration(),
+      rasters_reactive()$duration,
       name = "Flooded duration") +
       tm_raster(
         title = "Flooded duration (days)",
@@ -512,7 +501,7 @@ server <- function(input, output) {
   ## fig5-6 ----------------------------------------------------------
   
   output$fig5 <- renderTmap({
-    tm_shape(rasters_pdensity(),
+    tm_shape(rasters_reactive()$pop_density,
              name = "Population density") +
       tm_raster(
         title = "Population density (ppl/km^2)",
@@ -555,7 +544,7 @@ server <- function(input, output) {
       geom_smooth(
         formula = 'y ~ x',
         method = lm,
-        size = 2) +
+        linewidth = 2) +
       mytheme() +
       labs(
         title = "More high-water marks in urban areas than rural areas?",
@@ -571,7 +560,7 @@ server <- function(input, output) {
   
   output$fig7 <- renderTmap({
     tm_shape(
-      rasters_hillshade(),
+      rasters_reactive()$hillshade,
       name = "Hillshade") +
       tm_raster(
         pal = gray.colors(
@@ -582,7 +571,7 @@ server <- function(input, output) {
         alpha = 0.9,
         legend.show = FALSE) +
       tm_shape(
-        rasters_elevation(),
+        rasters_reactive()$elevation,
         name = "Elevation") +
       tm_raster(
         title = "Elevation (m)",
@@ -626,7 +615,7 @@ server <- function(input, output) {
         formula = 'y ~ x',
         se = FALSE,
         method = lm,
-        size = 1.5)
+        linewidth = 1.5)
     
     
     if (input$toggle_overall) {
@@ -670,7 +659,7 @@ server <- function(input, output) {
   
   output$fig9 <- renderTmap({
     tm_shape(
-      rasters_precip(),
+      rasters_reactive()$percent_of_normal_precip,
       name = "Precipitation") +
       tm_raster(
         title = "Normal precipitation (%)",
@@ -704,7 +693,7 @@ server <- function(input, output) {
         precip = hwm_sfc() %>%
           terra::vect() %>%
           terra::extract(
-            rasters_precip() %>%
+            rasters_reactive()$percent_of_normal_precip %>%
               terra::classify(
                 cbind(NA, 0)),
             .) %>%

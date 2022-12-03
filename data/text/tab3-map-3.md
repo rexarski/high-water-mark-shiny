@@ -1,1 +1,5 @@
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+**Prediction: High-water marks with high elevations are usually "less flooded".**
+
+The elevation of a given coordinate is a long-term factor, which won't change in years. And we predict that for a given location, the extent of "how flooded it is" is related to its elevation.
+
+Surprisingly, no such negative correlation could be summarized from the scatterplot. And we learn from the map that more darker points are located far away from the coastline.

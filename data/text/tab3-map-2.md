@@ -1,1 +1,5 @@
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+**Prediction: High-water marks are more likely to appear in urban areas than rural areas.**
+
+We randomly sample 1000 points (not shown in the map) within the hurricane-affected area, and extract the distance to their corresponding nearest high-water marks, and compare those with the population density of those points.
+
+Ideally, if the prediction holds, there should be a clear tendency that, as distance to the nearest high-water mark increases, the population density decreases. However, no such relationship is observed.
