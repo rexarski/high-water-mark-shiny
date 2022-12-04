@@ -10,12 +10,13 @@ However, collecting data of an flooding event can be quite dangerous if there's 
 
 ### Data
 
-- [`florence.tif`](https://global-flood-database.cloudtostreet.ai/#interactive-map): FLooding data of Hurricane Florence in 2018.
-- [`highwatermark.csv`](https://stn.wim.usgs.gov/FEV/#2018Florence): High-water mark locations during the flood event of Hurricane Florence.
-- [`precip.tif`](https://water.weather.gov/precip/download.php): National precipitation of September 2018.
-- [`10_DEM_y30x-90.tif`](https://ec.europa.eu/eurostat/web/gisco/geodata/reference-data/elevation/copernicus-dem/elevation): DEM data of the tile where South Carolina roughly is.
-- [`10_DEM_y30x-80.tif`](https://ec.europa.eu/eurostat/web/gisco/geodata/reference-data/elevation/copernicus-dem/elevation): DEM data of the tile where North Carolina roughly is.
-- [`usa_pd_2018_1km.tif`](https://hub.worldpop.org/geodata/summary?id=39728): Population density of 1km resolution in the affected area.
+- See [this repository](https://github.com/rexarski/gis_project_floods) for organized raw data:
+  - [`florence.tif`](https://global-flood-database.cloudtostreet.ai/#interactive-map): FLooding data of Hurricane Florence in 2018.
+  - [`highwatermark.csv`](https://stn.wim.usgs.gov/FEV/#2018Florence): High-water mark locations during the flood event of Hurricane Florence.
+  - [`precip.tif`](https://water.weather.gov/precip/download.php): National precipitation of September 2018.
+  - [`10_DEM_y30x-90.tif`](https://ec.europa.eu/eurostat/web/gisco/geodata/reference-data/elevation/copernicus-dem/elevation): DEM data of the tile where South Carolina roughly is.
+  - [`10_DEM_y30x-80.tif`](https://ec.europa.eu/eurostat/web/gisco/geodata/reference-data/elevation/copernicus-dem/elevation): DEM data of the tile where North Carolina roughly is.
+  - [`usa_pd_2018_1km.tif`](https://hub.worldpop.org/geodata/summary?id=39728): Population density of 1km resolution in the affected area.
 
 ### References
 
