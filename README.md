@@ -1,3 +1,7 @@
+# README
+
+![img](screenshot.png)
+
 A **high-water mark** is the highest point that a body of water reaches during a flood event. In the context of GIS, high-water marks are important because they help to determine the extent of flooding and the potential damage that may have occurred. By using spatial data and mapping technologies, we can better understand floods and make more informed decisions about how to respond to and mitigate the impacts of flood events.
 
 However, collecting data of an flooding event can be quite dangerous if there's no monitoring system we can rely on. Hydrologists or researchers would travel outside in extreme weather conditions to acquire real-time data. So one of the goals of this Shiny application is to examine our current knowledge of high-water marks and try to learn more about the patterns within, which could possibly help us expand flood monitoring system.
